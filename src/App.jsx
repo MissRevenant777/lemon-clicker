@@ -1,3 +1,4 @@
+import Header from './components/Header';
 import Booster from './components/Booster';
 import Balance from './components/Balance';
 import Lemon from './components/Lemon';
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <div>
+        <Header>lemon clicker</Header>
         <Balance total="157" />
         <Lemon />
         <Booster value="3.2" />
