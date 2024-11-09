@@ -7,3 +7,5 @@ function Lemon(props) {
     </div>
   );
 }
+  
+export default Lemon;
