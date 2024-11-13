@@ -4,10 +4,9 @@ import ErrorPage from '../pages/ErrorPage';
 import Clicker from '../pages/Clicker';
 import Store from '../pages/Store';
 import Settings from '../pages/Settings';
-import Credits from '../pages/Credits';
 
 function AppRouter(props) {
- 
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -15,14 +14,13 @@ function AppRouter(props) {
       errorElement: <ErrorPage />,
       children: [
         { path: "", element: <Clicker stats={props.stats} handleClick={props.handleClick} /> },
-        { path: "store", element: <Store stats={props.stats} />},
+        { path: "store", element: <Store stats={props.stats} storeitems={props.storeitems} />},
         { path: "settings", element: <Settings stats={props.stats} />}, 
-        { path: "credits", element: <Credits /> }
       ]
     }
   ]);
+
   return (
     <RouterProvider router={router} />
   );
 }
-export default AppRouter;  
