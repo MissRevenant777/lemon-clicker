@@ -8,7 +8,6 @@ function Store(props) {
     <div className="container">
       <Header balance={props.stats.balance}>store</Header>
       <div className="scrollbox items">
-        TODO items
         {items}
       </div>
     </div>

@@ -24,3 +24,4 @@ function AppRouter(props) {
     <RouterProvider router={router} />
   );
 }
+export default AppRouter;
