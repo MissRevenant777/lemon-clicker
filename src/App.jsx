@@ -7,8 +7,18 @@ import './App.css'
 
 function App() {
 
+    // Esitellään pelin laskennalliset alkuarvot.
+    const initialstats = {
+      clicks: 0,
+      balance: 0,
+      increase: 1,
+      itemstobuy: 0,
+      upgrades: 0,
+      collected: 0
+    }
+
   // Luodaan tilamuuttuja, johon tallennetaan pelin laskennalliset tiedot.
-  const [stats, setStats] = useState({clicks: 0, balance: 0, increase: 1, itemstobuy: 0});
+  const [stats, setStats] = useState(initialstats);
 
   // Luodaan tilamuuttuja, johon tallennetaan tuotelista.
   const [storeitems,setStoreitems] = useState(items);
@@ -27,8 +37,10 @@ function App() {
     let newstats = {...stats}
     // Kasvatetaan napautusten lukumäärää yhdellä.
     newstats.clicks = newstats.clicks + 1;
-    // Kasvataan sitruunoiden määrää kasvatusarvolla.
+    // Kasvatetaan sitruunoiden määrää kasvatusarvolla.
     newstats.balance = round(newstats.balance + newstats.increase,1);
+    // Kasvatetaan sitruunoiden keräysmäärää.
+    newstats.collected = round(newstats.collected + newstats.increase,1);
     // Lasketaan ostettavissa olevien tuotteiden lukumäärä.
     newstats.itemstobuy = countBuyableItems(storeitems,newstats.balance);
     // Tallennetaan päivitetty stats-muuttuja.
